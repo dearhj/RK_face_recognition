@@ -2,6 +2,8 @@ package com.rockchip.iva.face;
 
 import android.os.Environment;
 
+import com.rockchip.iva.face_pose.R;
+
 public class Configs {
 
     public final static String TAG = "IvaFaceApp";

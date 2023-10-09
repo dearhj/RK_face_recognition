@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.rockchip.iva.face_pose.R;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final int PERMISSION_CALLBACK = 0;
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG, "Demo version:" + BuildConfig.VERSION_NAME);
+//        Log.d(TAG, "Demo version:" + BuildConfig.VERSION_NAME);
         initView();
     }
 

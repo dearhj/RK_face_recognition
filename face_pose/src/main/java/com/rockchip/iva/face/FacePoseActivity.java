@@ -31,6 +31,7 @@ import com.rockchip.iva.RockIvaCallback;
 import com.rockchip.iva.RockIvaImage;
 import com.rockchip.iva.face.utils.ImageBufferQueue;
 import com.rockchip.iva.face.utils.RkCameraUtils;
+import com.rockchip.iva.face_pose.R;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
