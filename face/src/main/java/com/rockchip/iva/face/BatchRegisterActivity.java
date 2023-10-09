@@ -116,43 +116,36 @@ public class BatchRegisterActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button_select_import_img_dir: {
-                Intent intent = new Intent(getApplicationContext(), FileManagerActivity.class);
-                startActivityForResult(intent, REQUEST_CHOOSE_IMPORT_IMG);
-                break;
-            }
-            case R.id.button_start: {
-                Log.d(Configs.TAG, "button_start importImgDir=" + importImgDir + ",lastImportImgDir=" + lastImportImgDir);
-                if (asyncTask != null && asyncTask.getStatus() == AsyncTask.Status.RUNNING) {
-                    import_status = false;
-                    asyncTask.cancel(true);
-                    if (importImgDir.equalsIgnoreCase(lastImportImgDir)) {
-                        isContinue = true;
-                        btnStart.setText(R.string.face_import_continue);
-                        textViewTips.setText(String.format(getString(R.string.import_pause), importList.size(), totalList.size()));
-                    } else {
-                        isContinue = false;
-                        btnStart.setText(R.string.face_import_btn);
-                        textViewTips.setText("");
-                    }
-                    Log.d(Configs.TAG, "button_start isContinue=" + isContinue);
-                    asyncTask = null;
+        if(view.getId() == R.id.button_select_import_img_dir){
+            Intent intent = new Intent(getApplicationContext(), FileManagerActivity.class);
+            startActivityForResult(intent, REQUEST_CHOOSE_IMPORT_IMG);
+        } else if(view.getId() == R.id.button_start) {
+            Log.d(Configs.TAG, "button_start importImgDir=" + importImgDir + ",lastImportImgDir=" + lastImportImgDir);
+            if (asyncTask != null && asyncTask.getStatus() == AsyncTask.Status.RUNNING) {
+                import_status = false;
+                asyncTask.cancel(true);
+                if (importImgDir.equalsIgnoreCase(lastImportImgDir)) {
+                    isContinue = true;
+                    btnStart.setText(R.string.face_import_continue);
+                    textViewTips.setText(String.format(getString(R.string.import_pause), importList.size(), totalList.size()));
                 } else {
-                    if (importImgDir == null) {
-                        Toast.makeText(getApplicationContext(), R.string.select_dir_to_import, Toast.LENGTH_LONG).show();
-                        return;
-                    }
-                    lastImportImgDir = importImgDir;
-                    import_status = true;
-                    asyncTask = new RunBatchFaceRegisterTask();
-                    asyncTask.execute(importImgDir);
-                    btnStart.setText(R.string.import_stop);
+                    isContinue = false;
+                    btnStart.setText(R.string.face_import_btn);
+                    textViewTips.setText("");
                 }
-                break;
+                Log.d(Configs.TAG, "button_start isContinue=" + isContinue);
+                asyncTask = null;
+            } else {
+                if (importImgDir == null) {
+                    Toast.makeText(getApplicationContext(), R.string.select_dir_to_import, Toast.LENGTH_LONG).show();
+                    return;
+                }
+                lastImportImgDir = importImgDir;
+                import_status = true;
+                asyncTask = new RunBatchFaceRegisterTask();
+                asyncTask.execute(importImgDir);
+                btnStart.setText(R.string.import_stop);
             }
-            default:
-                break;
         }
     }
 

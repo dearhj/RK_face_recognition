@@ -4,6 +4,7 @@ plugins {
 
 android {
     compileSdkVersion 30
+    namespace 'com.rockchip.iva'
     buildToolsVersion "33.0.0"
 
     defaultConfig {

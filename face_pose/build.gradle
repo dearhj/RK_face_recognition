@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 32
+    namespace 'com.rockchip.iva.face_pose'
     defaultConfig {
         applicationId "com.rockchip.iva.face_pose"
         minSdkVersion 26
@@ -23,11 +24,11 @@ android {
     }
 }
 
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
+//repositories {
+//    flatDir {
+//        dirs 'libs'
+//    }
+//}
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
