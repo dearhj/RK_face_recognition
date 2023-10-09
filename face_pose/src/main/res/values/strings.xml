@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RockIva Face Pose</string>
+    <string name="settings_no_camera">No camera is found</string>
+    <string name="permission_require">Permission required</string>
+    <string name="main_title">Rockchip IVA Face SDK</string>
+    <string name="face_recognition">Face Pose</string>
+    <string name="read_file_fail">read file fail</string>
+    <string name="author_model_init">Algorithm model is initializing,please wait...</string>
+    <string name="powered_by_rockchip">Powered by Rockchip GPADC.</string>
+    <string name="app_title">RockIVA Face Demo</string>
+</resources>

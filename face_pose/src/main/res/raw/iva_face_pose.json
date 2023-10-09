@@ -1,0 +1,32 @@
+{
+    "modelPath": "/sdcard/Android/data/iva/rockiva_data",
+    "licensePath": "/sdcard/Android/data/iva/key.lic",
+    "workMode": 0,
+    "coreMask": 0,
+    "channelId": 0,
+    "imageInfo": {
+        "width": 1920,
+        "height": 1080,
+        "format": 7,
+        "transformMode": 0
+    },
+    "detModel": 7,
+    "face": {
+        "mode": 0,
+        "faceTaskType": {
+            "faceCaptureEnable": 0,
+            "faceRecognizeEnable": 0,
+            "faceAttributeEnable": 0,
+            "relatedPersonEnable": 0,
+            "facePoseEnable": 1
+        },
+        "facePoseConfig": {
+            "maxFrame": 5,
+            "maxStep": 600,
+            "minSize": 800,
+            "faceWidth": 1560,
+            "faceHeight": 3889,
+            "headY0": 700
+        }
+    }
+}

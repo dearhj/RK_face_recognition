@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RockIva Plate</string>
+    <string name="settings_no_camera">No camera is found</string>
+    <string name="permission_require">Permission required</string>
+    <string name="main_title">Rockchip IVA Plate SDK</string>
+    <string name="plate_recognition">Plate Recognition</string>
+</resources>
