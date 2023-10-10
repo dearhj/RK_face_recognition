@@ -9,7 +9,7 @@ public class Configs {
     /**
      * 摄像头ID
      */
-    public final static int CAMERA_ID = 0;
+    public final static int CAMERA_ID = 1;
 
     /**
      * 摄像头图像宽度

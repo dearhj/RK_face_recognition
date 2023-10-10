@@ -155,10 +155,8 @@ public class FaceRecognitionActivity extends AppCompatActivity implements RkCame
         mHandler.sendMessage(msg);
     }
 
-    private Handler mHandler = new Handler()
-    {
-        public void handleMessage(Message msg)
-        {
+    private Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
             if (msg.what == HANDLE_SHOW_FPS) {
                 float fps = (float) msg.obj;
 
@@ -181,7 +179,8 @@ public class FaceRecognitionActivity extends AppCompatActivity implements RkCame
             switch (msg.what) {
                 case HANDLE_FACE_SEARCH: {
 
-                } break;
+                }
+                break;
             }
             return true;
         }
@@ -222,13 +221,12 @@ public class FaceRecognitionActivity extends AppCompatActivity implements RkCame
     RockIvaCallback mIvaCallback = new RockIvaCallback() {
         @Override
         public void onResultCallback(String result, int execureState) {
-//            Log.d(Configs.TAG, ""+result);
-
+            Log.d(Configs.TAG, ""+result);
             JSONObject jobj = JSONObject.parseObject(result);
             ArrayList<RockIvaFaceInfo> faceList = new ArrayList<>();
             if (JSONPath.contains(jobj, "$.faceDetResult")) {
                 updateFps();
-                int num = (int)JSONPath.eval(jobj, "$.faceDetResult.objNum");
+                int num = (int) JSONPath.eval(jobj, "$.faceDetResult.objNum");
                 for (int i = 0; i < num; i++) {
                     Object faceInfoJobj = JSONPath.eval(jobj, String.format("$.faceDetResult.faceInfo[%d]", i));
                     RockIvaFaceInfo faceInfo = JSONObject.parseObject(faceInfoJobj.toString(), RockIvaFaceInfo.class);
@@ -238,7 +236,7 @@ public class FaceRecognitionActivity extends AppCompatActivity implements RkCame
                 updateMainUI(HANDLE_SHOW_RESULT, null);
                 checkFaceRecog();
             } else if (JSONPath.contains(jobj, "$.faceCapResults")) {
-                int num = (int)JSONPath.eval(jobj, "$.faceCapResults.num");
+                int num = (int) JSONPath.eval(jobj, "$.faceCapResults.num");
                 for (int i = 0; i < num; i++) {
                     JSONObject faceCapResultObj = (JSONObject) JSONPath.eval(jobj, String.format("$.faceCapResults.faceResults[%d]", i));
                     int qualityResult = (int) JSONPath.eval(faceCapResultObj, "$.qualityResult");
@@ -343,7 +341,7 @@ public class FaceRecognitionActivity extends AppCompatActivity implements RkCame
                     drawStr += " - " + String.format("%s %.2f", face.getName(), face.getScore());
                 }
                 mTrackResultCanvas.drawText(drawStr, drawRect.left,
-                        drawRect.top-20, mTrackResultTextPaint);
+                        drawRect.top - 20, mTrackResultTextPaint);
             }
         }
         mTrackResultView.setScaleType(ImageView.ScaleType.FIT_XY);
