@@ -1,5 +1,6 @@
 package com.rockchip.iva.face;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -287,6 +288,7 @@ public class FaceRecognitionActivity extends AppCompatActivity implements RkCame
         return (int) (spValue * scale + 0.5f);
     }
 
+    @SuppressLint("DefaultLocale")
     private void showResults() {
 
         int width = mTrackResultView.getWidth();
@@ -329,16 +331,19 @@ public class FaceRecognitionActivity extends AppCompatActivity implements RkCame
 
         //detect result
         SparseArray<FaceResult> faceList = mTrackedFaceArray.clone();
-        if (faceList != null && faceList.size() > 0) {
+        if (faceList.size() > 0) {
             for (int n = 0; n < faceList.size(); n++) {
                 int key = faceList.keyAt(n);
                 FaceResult face = faceList.get(key);
-                Rect drawRect = RockIva.convertRectRatioToPixel(width, height, face.getFaceInfo().faceRect, RockIvaImage.TransformMode.NONE);
+                RockIvaImage.TransformMode mode;
+                if(Configs.CAMERA_ID == 1) mode = RockIvaImage.TransformMode.FLIP_H;
+                else mode = RockIvaImage.TransformMode.NONE;
+                Rect drawRect = RockIva.convertRectRatioToPixel(width, height, face.getFaceInfo().faceRect, mode);
                 mTrackResultCanvas.drawRect(drawRect, mTrackResultPaint);
                 String drawStr = "";
                 drawStr += "id:" + face.getFaceInfo().objId;
                 if (face.getName() != null && !face.getName().isEmpty()) {
-                    drawStr += " - " + String.format("%s %.2f", face.getName(), face.getScore());
+                    drawStr += "  " + String.format("名字:%s  相似度:%.2f", face.getName(), face.getScore());
                 }
                 mTrackResultCanvas.drawText(drawStr, drawRect.left,
                         drawRect.top - 20, mTrackResultTextPaint);

@@ -16,7 +16,7 @@ public class RockIvaHeadInfo {
     public RockIvaFacePoseState facePoseState;                               /* 人脸状态 */
     public RockIvaObjectInfo face;                          /* 人脸 */
 
-    static RockIvaHeadInfo parse(String json_str) {
+    public static RockIvaHeadInfo parse(String json_str) {
         RockIvaHeadInfo object = JSONObject.parseObject(json_str, RockIvaHeadInfo.class);
         return object;
     }
