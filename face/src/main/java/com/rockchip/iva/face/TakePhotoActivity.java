@@ -72,12 +72,7 @@ public class TakePhotoActivity extends AppCompatActivity implements RkCameraUtil
     private void initView() {
         mSurfaceView = findViewById(R.id.surfaceViewCamera1);
         ImageButton captureButton = findViewById(R.id.button_capture);
-        captureButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mTakePhoto = true;
-            }
-        });
+        captureButton.setOnClickListener(v -> mTakePhoto = true);
     }
 
     private void takePicture(byte[] data, Camera camera) {

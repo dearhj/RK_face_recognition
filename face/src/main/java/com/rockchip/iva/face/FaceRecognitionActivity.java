@@ -221,7 +221,7 @@ public class FaceRecognitionActivity extends AppCompatActivity implements RkCame
     RockIvaCallback mIvaCallback = new RockIvaCallback() {
         @Override
         public void onResultCallback(String result, int execureState) {
-            Log.d(Configs.TAG, ""+result);
+//            Log.d(Configs.TAG, ""+result  + "  execureState =  " +  execureState );
             JSONObject jobj = JSONObject.parseObject(result);
             ArrayList<RockIvaFaceInfo> faceList = new ArrayList<>();
             if (JSONPath.contains(jobj, "$.faceDetResult")) {
