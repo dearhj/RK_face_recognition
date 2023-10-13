@@ -7,38 +7,12 @@
     "coreMask": 0,
     "channelId": 0,
     "imageInfo": {
-        "width": 1920,
-        "height": 1080,
+        "width": 1280,
+        "height": 720,
         "format": 0,
         "transformMode": 0
     },
     "detModel": 1,
-    "roiAreas": {
-        "areaNum": 0,
-        "areas": [
-            {
-                "pointNum": 4,
-                "points": [
-                    {
-                        "x": 0,
-                        "y": 0
-                    },
-                    {
-                        "x": 0,
-                        "y": 0
-                    },
-                    {
-                        "x": 0,
-                        "y": 0
-                    },
-                    {
-                        "x": 0,
-                        "y": 0
-                    }
-                ]
-            }
-        ]
-    },
 
     "ba": {
         "enable": 1,
@@ -47,126 +21,6 @@
             "detectResultMode": 1
         },
         "baRules": {
-            "areaInRule": [
-                {
-                    "ruleEnable": 0,
-                    "ruleID": 0,
-                    "area": {
-                        "pointNum": 4,
-                        "points": [
-                            {
-                                "x": 0,
-                                "y": 0
-                            },
-                            {
-                                "x": 0,
-                                "y": 0
-                            },
-                            {
-                                "x": 0,
-                                "y": 0
-                            },
-                            {
-                                "x": 0,
-                                "y": 0
-                            }
-                        ]
-                    },
-                    "event": 0,
-                    "minObjSize": [
-                        {
-                            "width": 0,
-                            "height": 0
-                        },
-                        {
-                            "width": 0,
-                            "height": 0
-                        },
-                        {
-                            "width": 0,
-                            "height": 0
-                        }
-                    ],
-                    "maxObjSize": [
-                        {
-                            "width": 0,
-                            "height": 0
-                        },
-                        {
-                            "width": 0,
-                            "height": 0
-                        },
-                        {
-                            "width": 0,
-                            "height": 0
-                        }
-                    ],
-                    "objType": 0,
-                    "alertTime": 0,
-                    "sense": 0,
-                    "checkEnter": 0
-                }
-            ],
-            "areaOutRule": [
-                {
-                    "ruleEnable": 0,
-                    "ruleID": 0,
-                    "area": {
-                        "pointNum": 4,
-                        "points": [
-                            {
-                                "x": 0,
-                                "y": 0
-                            },
-                            {
-                                "x": 0,
-                                "y": 0
-                            },
-                            {
-                                "x": 0,
-                                "y": 0
-                            },
-                            {
-                                "x": 0,
-                                "y": 0
-                            }
-                        ]
-                    },
-                    "event": 0,
-                    "minObjSize": [
-                        {
-                            "width": 0,
-                            "height": 0
-                        },
-                        {
-                            "width": 0,
-                            "height": 0
-                        },
-                        {
-                            "width": 0,
-                            "height": 0
-                        }
-                    ],
-                    "maxObjSize": [
-                        {
-                            "width": 0,
-                            "height": 0
-                        },
-                        {
-                            "width": 0,
-                            "height": 0
-                        },
-                        {
-                            "width": 0,
-                            "height": 0
-                        }
-                    ],
-                    "objType": 0,
-                    "alertTime": 0,
-                    "sense": 0,
-                    "checkEnter": 0
-                }
-            ],
             "areaInBreakRule": [
                 {
                     "ruleEnable": 1,
@@ -175,24 +29,23 @@
                         "pointNum": 4,
                         "points": [
                             {
-                                "x": 3208,
-                                "y": 5352
+                                "x": 2000,
+                                "y": 2000
                             },
                             {
-                                "x": 5583,
-                                "y": 5667
+                                "x": 2000,
+                                "y": 8000
                             },
                             {
-                                "x": 7073,
-                                "y": 9999
+                                "x": 8000,
+                                "y": 8000
                             },
                             {
-                                "x": 166,
-                                "y": 9999
+                                "x": 8000,
+                                "y": 2000
                             }
                         ]
                     },
-                    "event": 5,
                     "minObjSize": [
                         {
                             "width": 0,
@@ -222,7 +75,7 @@
                         }
                     ],
                     "objType": 7,
-                    "alertTime": 1000,
+                    "alertTime": 10,
                     "sense": 100,
                     "checkEnter": 0
                 }
