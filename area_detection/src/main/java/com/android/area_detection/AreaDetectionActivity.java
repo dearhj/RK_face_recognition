@@ -2,6 +2,10 @@ package com.android.area_detection;
 
 
 //import android.annotation.SuppressLint;
+import static com.android.area_detection.SoundPlayUtils.play;
+import static com.android.area_detection.SoundPlayUtils.release;
+import static com.android.area_detection.SoundPlayUtils.setupPlayer;
+
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -16,6 +20,7 @@ import android.hardware.Camera;
 import android.os.Bundle;
 //import android.os.Handler;
 //import android.os.Message;
+import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
@@ -78,6 +83,7 @@ public class AreaDetectionActivity extends AppCompatActivity implements RkCamera
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        release();
         ivaAreaDetectionManager.release();
         bufferQueue = null;
         rockiva = null;
@@ -154,6 +160,8 @@ public class AreaDetectionActivity extends AppCompatActivity implements RkCamera
     @Override
     public void onCameraPreview(byte[] data, Camera camera) {
         if (firstPreview) {
+            setupPlayer();
+            SoundPlayUtils.init(this);
             firstPreview = false;
             width = mTrackResultView.getWidth();
             height = mTrackResultView.getHeight();
@@ -286,12 +294,28 @@ public class AreaDetectionActivity extends AppCompatActivity implements RkCamera
                     if(objectInfo.triggerRules != 0) mTrackResultPaint.setColor(Color.RED);
                     else mTrackResultPaint.setColor(Color.GREEN);
                     Rect drawObjectRect = RockIva.convertRectRatioToPixel(width, height, new Rect(objectInfo.left, objectInfo.top, objectInfo.right, objectInfo.bottom), RockIvaImage.TransformMode.FLIP_H);
-                    mTrackResultCanvas.drawText("triggerRules=" + objectInfo.triggerRules, drawObjectRect.left, drawObjectRect.top - 20, mTrackResultTextPaint);
+                    mTrackResultCanvas.drawText(resultStr(objectInfo.triggerRules), drawObjectRect.left, drawObjectRect.top - 20, mTrackResultTextPaint);
                     mTrackResultCanvas.drawRect(drawObjectRect, mTrackResultPaint);
+                    sound(objectInfo.triggerRules);
                 }
             }
         }
         mTrackResultView.setScaleType(ImageView.ScaleType.FIT_XY);
         mTrackResultView.setImageBitmap(mTrackResultBitmap);
+    }
+
+    boolean isPlay = false;
+    Handler handler = new Handler();
+    private void sound(int result){
+        if(result != 0 && !isPlay) {
+            play(this);
+            isPlay = true;
+            handler.postDelayed(() -> isPlay = false, 500);
+        }
+    }
+
+    private String resultStr(int str){
+        if(str != 0) return "入侵者！";
+        else return "";
     }
 }
