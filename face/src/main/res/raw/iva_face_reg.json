@@ -5,8 +5,8 @@
     "coreMask": 0,
     "channelId": 0,
     "imageInfo": {
-        "width": 1920,
-        "height": 1080,
+        "width": 1280,
+        "height": 720,
         "format": 0,
         "transformMode": 0
     },
